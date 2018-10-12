@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>项目管理-我的项目-未参赛</title>
+    <link rel="stylesheet" type="text/css" href="http://unpkg.com/iview/dist/styles/iview.css">
+    <script type="text/javascript" src="http://vuejs.org/js/vue.min.js"></script>
+    <script type="text/javascript" src="http://unpkg.com/iview/dist/iview.min.js"></script>
+    <style>
+        .ivu-tabs{
+            width: 720px;
+        }
+        .ivu-tabs-nav .ivu-tabs-tab-active {
+            color: rgba(124,57,255,1);;
+        }
+        .ivu-tabs-ink-bar{
+            background:rgba(124,57,255,1);
+        }
+        .pro-content{
+            text-align: center;
+        }
+        .pro-content h3{
+            margin-top: 24px;
+            font-size:14px;
+            font-weight:600;
+            color:rgba(53,53,63,1);
+        }
+        .pro-content .pro-reward{
+            width: 252px;
+            margin: 0 auto;
+            text-align: left;
+            margin-top: 24px;
+        }
+        .pro-content .pro-reward p{
+            font-size:12px;
+            font-weight:400;
+            color:rgba(53,53,63,1);
+        }
+        .pro-content button{
+            width:120px;
+            height:40px;
+            background:rgba(124,57,255,1);
+            border-radius:4px;  
+            color:rgba(255,255,255,1);
+            margin-top: 40px;
+        }
+    /*以上是我的项目*/
+        .com-management{
+            width: 720px;
+        }
+        .com-management .competition{
+            width: 720px;
+            height: 228px;
+            background-image: url(./img/参赛管理pic@2x.png);
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 12px;
+        }
+        .com-management .competition h3{
+            font-size:14px;
+            font-weight:400;
+            color:rgba(255,255,255,1);
+            margin-top: 12px;
+        }
+        .com-management .competition button{
+            width:120px;
+            height:40px;
+            background:rgba(255,255,255,1);
+            background-repeat: no-repeat;
+            border-radius:4px;
+            color:rgba(124,57,255,1);
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <Tabs value="myproject">
+        <Tab-pane label="我的项目" name="myproject">
+            <div class="pro-content">
+                <h3>您还没有提交项目，立即提交参赛可以享受</h3>
+                <div class="pro-reward">
+                    <p> 1. 赛事前十名，可以免费入住合作孵化器；</p>
+                    <p> 2. 所有参赛项目均可以优惠价入住；</p>
+                    <p> 3. 强大导师团指导，强大评委团点评；</p>
+                    <p> 4. 享受专业的平台营销服务。</p>
+                </div>
+                <i-button>立即参赛</i-button>
+            </div>
+        </Tab-pane> <!-- 换成TabPane -->
+        <Tab-pane label="参赛管理" name="competition">
+            <div class="com-management">
+                <!-- <img src="./img/参赛管理pic@2x.png" alt=""> -->
+                <div class="competition">
+                    <h3>新一届glab全球大赛开始了</h3>
+                    <h3>1、上亿基金直投；2、免费入驻杭州梦想小镇；3、1000元园区恭维代金券券</h3>
+                    <i-button>立即参与</i-button>
+                </div>
+                <i-table :columns="columns" :data="data"></i-table>  <!-- i-table换成Table -->
+            </div>
+        </Tab-pane>
+        <Tab-pane label="社区管理" name="community">秋意正寒</Tab-pane>
+    </Tabs>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data:{
+            columns: [
+                {
+                    title: '我的项目',
+                    key: 'myProject'
+                },
+                {
+                    title: '最近修改',
+                    key: 'community'
+                },
+                {
+                    title: '操作',
+                    key: 'action',
+                    width: 150,
+                    align: 'center',
+                    render: (h, params) => {
+                        return h('div', [
+                            h('a', {
+                                style: {
+                                    marginRight: '5px',
+                                    color:'rgba(124,57,255,1)'
+                                },
+                            }, '编辑'),
+                            h('a', {
+                                style: {
+                                    marginRight: '5px',
+                                    color:'rgba(124,57,255,1)'
+                                },
+                            }, '删除'),
+                            h('a', {
+                                style: {
+                                    marginRight: '5px',
+                                    color:'rgba(124,57,255,1)'
+                                },
+                            }, '报名参赛')
+                        ]);
+                    }
+                }
+            ],
+            data: [
+                {
+                    myProject: '一波公链',
+                    community: '2018-09-02 12：23',
+                },
+                {
+                    myProject: '一波公链',
+                    community: '2018-09-02 12：23',
+                },
+                {
+                    myProject: '一波公链',
+                    community: '2018-09-02 12：23',
+                },
+                {
+                    myProject: '一波公链',
+                    community: '2018-09-02 12：23',
+                }
+            ]
+        }
+    })
+  </script>
+</body>
+</html>
